@@ -100,8 +100,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_car")
+@app.route("/add_car", methods=["GET", "POST"])
 def add_car():
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        car = {
+            "category": request.form.get("category_name"),
+            "car_make": request.form.get("car_make"),
+            "car_description": request.form.get("car_description"),
+            "is_urgent" : is_urgent,
+            "sell_by_date": request.form.get("sell_by_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.tasks.insert_one(car)
+        flash("Car Successfully Added")
+        return redirect(url_for("get_tasks"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_car.html", categories=categories)
 
