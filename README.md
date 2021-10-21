@@ -1,4 +1,4 @@
-<h1 align="center">EV C</h1>
+<h1 align="center">EV Car Dealer</h1>
 
 [View the live project here.](#)
 
