@@ -12,28 +12,21 @@ Site creation is part of the milestone three project for the Code Institute, foc
 
     -   #### First Time Visitor Goals
 
-        1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the organisation.
-        2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        3. As a First Time Visitor, I want to look for testimonials to understand what their users think of them and see if they are trusted. I also want to locate their social media links to see their followings on social media to determine how trusted and known they are.
+        
 
     -   #### Returning Visitor Goals
 
-        1. As a Returning Visitor, I want to find information about coding challenges.
-        2. As a Returning Visitor, I want to find the best way to get in contact with the organisation with any questions I may have.
-        3. As a Returning Visitor, I want to find community links.
+        
 
     -   #### Frequent User Goals
-        1. As a Frequent User, I want to check to see if there are any newly added challenges or hackathons.
-        2. As a Frequent User, I want to check to see if there are any new blog posts.
-        3. As a Frequent User, I want to sign up to the Newsletter so that I am emailed any major updates and/or changes to the website or organisation.
+        
 
 -   ### Design
     -   #### Colour Scheme
-        -   The two main colours used are Code Insititue red, and white.
+        -   
     -   #### Typography
-        -   The Montserrat font is the main font used throughout the whole website with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly. Montserrat is a clean font used frequently in programming, so it is both attractive and appropriate.
-    -   #### Imagery
-        -   Imagery is important. The large, background hero image is designed to be striking and catch the user's attention. It also has a modern, energetic aesthetic.
+        -       -   #### Imagery
+        -   
 
 *   ### Wireframes
 
@@ -155,52 +148,71 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ## Deployment
 
-### GitHub Pages
+### Local Deployment
 
-The project was deployed to GitHub Pages using the following steps...
+- I have created EV Car Dealer using Github, from there I used VSCODE to write my code. Then I used commits to git followed by "git push" to my GitHub repository. 
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
-3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-4. Under "Source", click the dropdown called "None" and select "Master Branch".
-5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site [link](https://github.com) in the "GitHub Pages" section.
+- This project can be run locally by following the following steps: You will need to adjust them depending on your IDE. You can find more information about installing packages using pip and virtual environments [here](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 
-### Forking the GitHub Repository
+##### back to [content](#table-of-content)
 
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+### Clone this project:
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-3. You should now have a copy of the original repository in your GitHub account.
+-  From the application's repository, click the "code" button and download the zip of the repository. Alternatively, you can clone the repository using the following line in your terminal: git clone https://github.com/PhilipWilliams0/ev-car-dealer
+-  Access the folder in your terminal window and install the application's required modules using the following command: pip3 install -r requirements.txt
+-  Sign-in or sign-up to MongoDB and create a new cluster
+-  Within the Sandbox, click the collections button and after click Create Database (Add My Own Data) called ev_car_dealer
+-  Set up the following collections: users, products and reviews. Click to see the exact Database Structure
+-  Under the Security menu on the left, select Database Access.
+-  Add a new database user, and keep the credentials secure
+-  Within the Network Access option, add IP Address 0.0.0.0
+-  In your IDE, create a file containing your environmental variables called env.py at the root level of the application. It will need to contain the following lines and variables: import os
 
-### Making a Local Clone
+-
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. Under the repository name, click "Clone or download".
-3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-4. Open Git Bash
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type `git clone`, and then paste the URL you copied in Step 3.
+     os.environ  ["PORT"] = "5000"
+     os.environ  ["SECRET_KEY"] = "YOUR_SECRET_KEY" 
+     os.environ  ["DEBUG"] = "True"
+     os.environ  ["MONGO_URI"] = "YOUR_MONGODB_URI"
+     os.environ  ["MONGO_DBNAME"]= "DATABASE_NAME"
 
-```
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-```
 
-7. Press Enter. Your local clone will be created.
+- Please note that you will need to update the SECRET_KEY with your secret key, as well as the MONGO_URI and MONGO_DBNAME variables with those provided by MongoDB. Tip for your SECRET_KEY, you can use a Password Generator to have a secure secret key.
+- I recommend a length of 24 characters and exclude symbols. To find your MONGO_URI, go to your clusters and click on connect. Choose to connect your application and copy the link provided. 
 
-```
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-> Cloning into `CI-Clone`...
-> remote: Counting objects: 10, done.
-> remote: Compressing objects: 100% (8/8), done.
-> remove: Total 10 (delta 1), reused 10 (delta 1)
-> Unpacking objects: 100% (10/10), done.
-```
+- Don't forget to update the necessary fields like password and database name. If you plan on pushing this application to a public repository, ensure that env.py is added to your .gitignore file.
 
-Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+-	The application can now be run locally. In your terminal, type the following command python3 app.py.
+To deploy your project on Heroku, use the following steps:
+-	Login to your Heroku account and create a new app. Choose your region.
+-	Ensure the Procfile and requirements.txt files exist are present and up-to-date in your local repository.
 
+### Requirements:
+    - pip3 freeze --local > requirements.txt
+
+### Procfile:
+
+    - echo web: python app.py > Procfil
+
+- The Procfile should contain the following line:
+
+      - web: python app.py
+
+- And then:
+	- Scroll down to the "deployment method"-section. Choose "Github" for automatic deployment.
+	- From the inputs below, make sure your GitHub user is selected, and then enter the name for your repo. Click "search". When it finds the repo, click the "connect" button.
+	- Scroll back up and click "settings".
+	- Scroll down and click "Reveal config vars".
+	- Set up the same variables as in your env.py (IP, PORT, SECRET_KEY, MONGO_URI and MONGODB_NAME):!You shouldn't set the DEBUG variable is under config vars, only in your env.py to prevent DEBUG from being active on the live website.
+
+	     - PORT = 5000
+	     - SECRET_KEY = YOUR_SECRET_KEY
+	     - MONGO_URI = YOUR_MONGODB_URI
+	     - MONGO_DBNAME = DATABASE_NAME
+
+•	Scroll back up and click "Deploy". Scroll down and click "Enable automatic deployment".
+•	Just beneath, click "Deploy branch". Heroku will now start building the app. When the build is complete, click "view app" to open it.
+•	To commit your changes to the branch, use git push to push your changes.
 ## Credits
 
 ### Code
